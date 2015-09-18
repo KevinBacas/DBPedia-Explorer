@@ -1,10 +1,10 @@
-import { REQUEST_MAKE, REQUEST_FAILED, requestFailed } from './actions';
+import { REQUEST_MAKE, REQUEST_COMPLETED, REQUEST_FAILED, requestFailed } from './actions';
 import store from './store';
 
 const initialState = {
-  request_string: undefined,
-  request_status: undefined,
-  error_message: undefined
+  request_string: "",
+  request_status: REQUEST_COMPLETED,
+  error_message: ""
 };
 
 function requestApp(state = initialState, action) {
