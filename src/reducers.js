@@ -4,6 +4,7 @@ import $ from 'jquery';
 
 const initialState = {
   request_string: "",
+  request_result: [],
   request_status: REQUEST_COMPLETED,
   error_message: ""
 };
@@ -12,7 +13,7 @@ function requestApp(state = initialState, action) {
   switch (action.type) {
   case REQUEST_MAKE:
     $.get('http://fr.dbpedia.org/sparql?query='+action.request_string+"&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on")
-    .done((data) => store.dispatch(requestCompleted(data)))
+    .done((data) => store.dispatch(requestCompleted(data.results.bindings)))
     .fail((error) => store.dispatch(requestFailed(error)));
 
     return Object.assign({}, state, {
@@ -26,7 +27,7 @@ function requestApp(state = initialState, action) {
     });
   case REQUEST_COMPLETED:
     return Object.assign({}, state, {
-      error_message: action.error_message,
+      request_result: action.result,
       request_status: action.request_status
     });
   default:
