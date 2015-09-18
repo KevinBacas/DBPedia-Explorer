@@ -14,6 +14,7 @@ module.exports = {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/,  loader: 'react-hot!babel' },
       { test: /\.css/, loader: "style!css" },
+      { test: /\.less$/, loader: "style!css!less" },
       { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
       { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
       { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&minetype=application/octet-stream" },

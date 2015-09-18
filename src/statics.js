@@ -1,4 +1,2 @@
-require('../semantic/dist/semantic.css');
+require('../semantic/src/semantic.less');
 require('../semantic/dist/semantic.js');
-
-console.log("Static files are now loaded CSS");
