@@ -14,7 +14,7 @@ function requestApp(state = initialState, action) {
   case REQUEST_MAKE:
     $.get('http://fr.dbpedia.org/sparql?query='+action.request_string+"&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on")
     .done((data) => store.dispatch(requestCompleted(data.results.bindings)))
-    .fail((error) => store.dispatch(requestFailed(error)));
+    .fail((error) => store.dispatch(requestFailed(error.responseText)));
 
     return Object.assign({}, state, {
       request_string: action.request_string,
