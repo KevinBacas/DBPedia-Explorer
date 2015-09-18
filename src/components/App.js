@@ -7,7 +7,6 @@ import { requestMake, REQUEST_STATUS } from '../actions';
 
 class App extends React.Component {
   render() {
-    console.log(this.state, this.props);
     const { dispatch, request_status, request_result, error_message, request_string } = this.props;
     return (
       <div className="ui grid">
