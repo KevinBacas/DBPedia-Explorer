@@ -24,12 +24,12 @@ class RequestForm extends React.Component {
       ui: true,
       primary: true,
       button: true,
+      fluid: true,
       massive: true
     });
     return (
       <div className="ui form">
         <div className="field">
-          <label>Request :</label>
           <textarea disabled={this.props.isLoading} ref="request" />
         </div>
         <button className={buttonClassNames} onClick={this._handleClick}>Send request</button>
