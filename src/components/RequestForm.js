@@ -1,5 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
+import YASQE from '../../node_modules/yasgui-yasqe/dist/yasqe.bundled.js';
+require('../../node_modules/yasgui-yasqe/dist/yasqe.css');
 
 class RequestForm extends React.Component {
   constructor() {
@@ -15,6 +17,10 @@ class RequestForm extends React.Component {
         this.props.makeRequest(request);
       }
     }
+  }
+
+  componentDidMount() {
+    YASQE.fromTextArea(this.refs.request.getDOMNode());
   }
 
   render() {
