@@ -1,5 +1,4 @@
 var webpack = require('webpack');
-var path = require('path');
 
 module.exports = {
   entry: {
@@ -12,7 +11,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/,  loader: 'react-hot!babel' },
+      { test: /\.js$/, exclude: /node_modules/,  loader: 'babel' },
       { test: /\.css/, loader: "style!css" },
       { test: /\.less$/, loader: "style!css!less" },
       { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
