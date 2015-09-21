@@ -11,7 +11,7 @@ class RequestForm extends React.Component {
 
   _handleClick() {
     if(!this.props.isLoading) {
-      let request = this.refs.request.getDOMNode().value;
+      let request = this.state.yasqe.getValue();
       if(request !== "") {
         this.props.makeRequest(request);
       }
@@ -19,7 +19,12 @@ class RequestForm extends React.Component {
   }
 
   componentDidMount() {
-    YASQE.fromTextArea(this.refs.request.getDOMNode());
+    var yasqe = YASQE.fromTextArea(this.refs.request.getDOMNode(), {
+      value: "SELECT * \nWHERE {\n?a ?b ?c.\n}\nLIMIT 10"
+    });
+    this.setState({
+      yasqe
+    });
   }
 
   render() {
